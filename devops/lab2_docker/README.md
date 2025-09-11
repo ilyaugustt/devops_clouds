@@ -14,3 +14,24 @@ CMD python app.py
 ```
 
 Собираем образ:
+
+![](media/photo_2025-09-11_01-13-18.jpg)
+
+"bad practices" в этом Docerfile:
+1. Использовать latest оч опасно, образ может обновиться/измениться, что вызовет проблемы в работе с контейнером.
+2. Copy . /app - копировать всё тоже нехорошо, попадут ненужные файлы, увеличит размер образа.
+3. Установка зависимостей без версий - при каждой установке пакеты могут обновляться и ломать код.
+
+## Хороший Dockerfile:
+```
+FROM python:3.11-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY app.py .
+CMD ["python", "app.py"]
+```
+
+Собираем образ:
+
+![](media/
