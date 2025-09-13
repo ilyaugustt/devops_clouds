@@ -76,7 +76,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Deploy
-        run: echo "Deploying to production..."
+        run: echo "Deploying to production"
 ```
 
 Изменения:
@@ -89,3 +89,4 @@ jobs:
 
 
    
+
